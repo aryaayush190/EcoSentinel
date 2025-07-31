@@ -34,3 +34,6 @@ Thumbs.db
 # Do not track owl.png (if you want to keep it local only)
 # owl.png
 
+# Rasa cache (keep, do not ignore)
+!.rasa/cache/
+
