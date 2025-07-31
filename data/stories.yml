@@ -1,0 +1,35 @@
+version: "3.1"
+
+stories:
+- story: Positive feedback path
+  steps:
+  - intent: thumbs_up
+  - action: action_store_last_interaction  # Store interaction
+  - action: action_handle_thumbs_up  # Handle positive feedback
+  - action: action_analyze_response  # Analyze response
+
+- story: Negative feedback path
+  steps:
+  - intent: thumbs_down
+  - action: action_store_last_interaction
+  - action: action_handle_thumbs_down  # Prompt for description
+  - intent: provide_feedback_description  # User provides description
+  - action: action_submit_thumbs_down  # Submit and save to Neo4j
+  - action: action_analyze_response  # Analyze
+
+- story: Negative feedback with immediate description
+  steps:
+  - intent: thumbs_down
+  - action: action_store_last_interaction
+  - action: action_handle_thumbs_down
+  - intent: provide_feedback_description
+  - action: action_submit_thumbs_down
+  - action: action_analyze_response
+
+- story: Negative feedback with cancellation
+  steps:
+  - intent: thumbs_down
+  - action: action_store_last_interaction
+  - action: action_handle_thumbs_down
+  - intent: deny  # User declines to provide description
+  - action: utter_form_cancelled  # Or a custom "Feedback cancelled" response

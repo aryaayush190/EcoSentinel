@@ -1,0 +1,8 @@
+{
+  "rule_only_slots": [
+    "city"
+  ],
+  "rule_only_loops": [
+    "environment_incident_form"
+  ]
+}

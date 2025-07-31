@@ -1,0 +1,197 @@
+version: "3.1"
+
+intents:
+  - environment_incident_report
+  - affirm
+  - deny
+  - exit_form
+  - submit_incident_report
+  - provide_description
+  - provide_name
+  - provide_address
+  - provide_contact
+  - query_water_data
+  - query_policy
+  - query_air_quality
+  - greet
+  - thumbs_up
+  - thumbs_down
+  - provide_feedback_description
+entities:
+  - incident_type
+  - name
+  - contact_number
+  - incident_description
+  - address
+  - has_proof
+  - user_name
+  - station_id
+  - country
+  - city
+  - location
+
+slots:
+  incident_type:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: environment_incident_form
+            requested_slot: incident_type
+
+  user_name:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: environment_incident_form
+            requested_slot: user_name
+
+  contact_number:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: environment_incident_form
+            requested_slot: contact_number
+
+  incident_description:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: environment_incident_form
+            requested_slot: incident_description
+
+  address:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: environment_incident_form
+            requested_slot: address
+
+  has_proof:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: environment_incident_form
+            requested_slot: has_proof
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: environment_incident_form
+            requested_slot: has_proof
+
+  report_id:
+    type: text
+    mappings:
+      - type: custom
+  station_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: station_id
+  country:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: country
+  city:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: city
+  location:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: location
+  last_user_query:
+    type: text
+    mappings:
+      - type: custom
+
+  last_bot_response:
+    type: text
+    mappings:
+      - type: custom
+  feedback_description:
+    type: text
+    mappings:
+      - type: from_text
+
+  analyzed:
+    type: bool
+    mappings:
+      - type: custom
+
+
+
+forms:
+  environment_incident_form:
+    required_slots:
+      - incident_type
+      - user_name
+      - contact_number
+      - incident_description
+      - address
+      - has_proof
+responses:
+  utter_ask_incident_type:
+    - text: "What incident do you want to report?"
+
+  utter_ask_user_name:
+    - text: "What is your name?"
+
+  utter_ask_contact_number:
+    - text: "What is your contact number?"
+
+  utter_ask_incident_description:
+    - text: "Please describe what happened."
+
+  utter_ask_address:
+    - text: "Where did the incident happen?"
+
+  utter_ask_has_proof:
+    - text: "Do you have any proof (photo, video, etc.)?"
+
+  utter_form_cancelled:
+    - text: "Form cancelled. Your information was not saved."
+  utter_ask_station_id:
+    - text: "Please provide a station ID (e.g., FRDR06116620) for detailed water data."
+  utter_ask_country:
+    - text: "Which country? (e.g., FR for France)"
+  utter_ask_city:
+    - text: "Which city? Available: Madrid, Barcelona, Valencia, Seville, Bilbao, Zaragoza, Málaga, Palma de Mallorca."
+  utter_ask_location:
+    - text: "Please provide your location (e.g., '48.8566,2.3522' or 'Eiffel Tower, Paris')."
+
+  utter_greet: # Friendly greeting response
+    - text: "Hello! 👋 I'm your environmental assistant. How can I help you today? You can report incidents, query water data, policies, air quality, or more!"
+    - text: "Hi there! 🌍 Ready to chat about the environment? What would you like to do?"
+    - text: "Hola! 😊 What's on your mind—reporting a pollution issue or checking air quality?"
+
+  utter_ask_feedback_description:
+    - text: "Please describe what went wrong."
+
+actions:
+    - action_submit_environment_incident
+    - action_deactivate_loop
+    - action_query_water_data
+    - action_query_policy
+    - action_query_air_quality
+    - action_utter_greet
+    - action_store_last_interaction  # Run after bot responses
+    - action_handle_thumbs_up
+    - action_handle_thumbs_down
+    - action_submit_thumbs_down
+    - action_analyze_response
+
+session_config:
+  session_expiration_time: 60  # in minutes
+  carry_over_slots_to_new_session: false

@@ -1,0 +1,465 @@
+version: "3.1"
+
+nlu:
+# INCIDENT REPORTING INTENTS
+- intent: environment_incident_report
+  examples: |
+    - I want to report a pollution incident
+    - I saw illegal dumping
+    - I'm reporting noise pollution
+    - There's water wastage near my street
+    - I want to file an environmental complaint
+    - I'm here to report a problem
+    - I need to report environmental damage
+    - There's a chemical spill
+    - I want to report air pollution
+    - Reporting water contamination
+    - Environmental violation to report
+    - I saw someone dumping waste
+    - Report pollution incident
+    - Environmental emergency
+    - I want to file a complaint about [noise pollution](incident_type)
+    - I saw [illegal dumping](incident_type) in the river
+    - There's [water leakage](incident_type) from the factory
+    - I am reporting [air pollution](incident_type) from vehicles
+    - I want to file a complaint about [chemical spill](incident_type)
+    - Reporting [waste dumping](incident_type)
+    - [Oil spill](incident_type) in the lake
+    - [Noise pollution](incident_type) from construction
+    - [Plastic waste](incident_type) everywhere
+    - [Toxic fumes](incident_type) from factory
+
+# BASIC CONVERSATION INTENTS
+- intent: affirm
+  examples: |
+    - yes
+    - I do
+    - yeah
+    - sure
+    - of course
+    - absolutely
+    - correct
+    - right
+    - exactly
+    - indeed right
+    - that's right
+    - affirmative
+    - true
+    - ok
+    - okay
+    - yep
+    - uh-huh
+    - definitely
+    - certainly
+    - for sure
+    - yes I have [proof](has_proof)
+    - I do have [evidence](has_proof)
+    - yes, I can provide [photos](has_proof)
+    - I have [video evidence](has_proof)
+    - yes, I have [documentation](has_proof)
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - I don't
+    - never
+    - nah
+    - not really
+    - no way
+    - absolutely not
+    - definitely not
+    - I don't think so
+    - negative
+    - false
+    - incorrect
+    - wrong
+    - not at all
+    - no thanks
+    - I disagree
+    - I don't have any
+    - no proof
+    - no evidence
+    - nothing
+
+- intent: exit_form
+  examples: |
+    - I want to cancel
+    - stop
+    - exit
+    - I don't want to fill this form
+    - cancel this
+    - never mind
+    - quit
+    - abort
+    - stop the form
+    - I changed my mind
+    - cancel form
+    - exit form
+    - end this
+    - forget it
+    - skip this
+    - I don't want to continue
+    - leave this form
+
+- intent: submit_incident_report
+  examples: |
+    - I'm done
+    - I have finished
+    - that's all
+    - submit it
+    - send it
+    - file the report
+    - complete the form
+    - finish
+    - done
+    - ready to submit
+    - that's everything
+    - submit the report
+    - send the form
+    - all information provided
+
+# FORM DATA COLLECTION INTENTS
+- intent: provide_name
+  examples: |
+    - My name is [John Smith](user_name)
+    - It's [Emily Jones](user_name)
+    - Call me [Ravi Kumar](user_name)
+    - [Anita Verma](user_name)
+    - I'm [Michael Brown](user_name)
+    - [Sarah Wilson](user_name) is my name
+    - You can call me [David Lee](user_name)
+    - [Maria Garcia](user_name)
+    - The name is [James Taylor](user_name)
+    - [Lisa Anderson](user_name)
+
+- intent: provide_contact
+  examples: |
+    - You can reach me at [+1 1234567890](contact_number)
+    - My number is [9876543210](contact_number)
+    - Call me on [+44 7788990011](contact_number)
+    - [+91 9876543210](contact_number)
+    - My phone number is [555-123-4567](contact_number)
+    - Contact me at [+49 1234567890](contact_number)
+    - [0123456789](contact_number)
+    - Phone: [+33 123456789](contact_number)
+    - My mobile is [+61 412345678](contact_number)
+    - [+81 90-1234-5678](contact_number)
+
+- intent: provide_description
+  examples: |
+    - [There was loud music all night](incident_description)
+    - [Someone dumped garbage in the lake](incident_description)
+    - [Toxic gas leak from the factory](incident_description)
+    - [Oil spill in the river](incident_description)
+    - [Construction noise at 3 AM](incident_description)
+    - [Chemical waste in drinking water](incident_description)
+    - [Plastic bottles everywhere in the park](incident_description)
+    - [Black smoke from chimney](incident_description)
+    - [Dead fish floating in pond](incident_description)
+    - [Illegal tree cutting in forest](incident_description)
+
+- intent: provide_address
+  examples: |
+    - It happened near [Trafalgar Square London](address)
+    - The place is [Sector 15, Noida](address)
+    - At [45B Baker Street, London](address)
+    - [Central Park, New York](address)
+    - Near [Eiffel Tower, Paris](address)
+    - [123 Main Street, Delhi](address)
+    - [Mumbai Central Station](address)
+    - [Times Square, NYC](address)
+    - [Hyde Park, London](address)
+    - [Golden Gate Bridge, San Francisco](address)
+
+# WATER DATA QUERIES - UPDATED FOR CITY-BASED QUERIES
+- intent: query_water_data
+  examples: |
+    # City-based water quality queries (Primary use case with new schema)
+    - Show water quality for [Madrid](city)
+    - Water data for [Barcelona](city)
+    - Get water quality in [Valencia](city)
+    - Water pollution data for [Seville](city)
+    - Check water quality for [Bilbao](city)
+    - Water information for [Zaragoza](city)
+    - Show me water data for [Málaga](city)
+    - Water quality in [Palma de Mallorca](city)
+    - I want water quality data for [Paris](city)
+    - Water data for [London](city)
+    - Show water quality for [Berlin](city)
+    - Water pollution in [Rome](city)
+    - Get water data for [Amsterdam](city)
+    - Check water quality in [Vienna](city)
+    - Water information for [Prague](city)
+    - Show me water quality for [Brussels](city)
+    - Water data for [Lisbon](city)
+    - Water quality in [Dublin](city)
+    - Get water information for [Stockholm](city)
+    - Check water data for [Copenhagen](city)
+    - Show water quality in [Oslo](city)
+    - Water pollution data for [Helsinki](city)
+    - Water quality for [Warsaw](city)
+    - Get water data for [Budapest](city)
+    - Show water information for [Athens](city)
+    # River water specific queries
+    - River water quality for [Madrid](city)
+    - Show river water data for [Barcelona](city)
+    - River water pollution in [Valencia](city)
+    - Get river water quality for [Paris](city)
+    - River water information for [London](city)
+    - Check river water quality in [Berlin](city)
+    - River water data for [Rome](city)
+    - Show me river water quality for [Amsterdam](city)
+    # Monitoring station queries
+    - Show monitoring stations for [Madrid](city)
+    - Water monitoring stations in [Barcelona](city)
+    - Monitoring locations for [Valencia](city)
+    - Get station information for [Paris](city)
+    - Show stations monitoring water in [London](city)
+    - Water monitoring points in [Berlin](city)
+    - Monitoring stations for [Rome](city)
+    - Get monitoring station data for [Amsterdam](city)
+    # Legacy support for station IDs and countries (backward compatibility)
+    - I want water data for station [FRDR06116620](station_id)
+    - Query water quality in [FR](country)
+    - Get data from waterbase for station ID [IT09S0976](station_id)
+    - Water info for country [IT](country)
+    - Water quality data for [ESDR08765432](station_id)
+    - Show me water data for [DE](country)
+    - Water quality in [NL](country)
+    - Get water data for station [GBDR09876543](station_id)
+    - Water information for [BE](country)
+    - Check water quality for [PT](country)
+    - Water data from station [ATDR01234567](station_id)
+    - Show water quality for [CH](country)
+
+# POLICY QUERIES (Limited to Spanish cities - unchanged)
+- intent: query_policy
+  examples: |
+    - Policy for [Madrid](city)
+    - Environmental rules in [Barcelona](city)
+    - What policies in [Valencia](city)?
+    - Waste collection schedule for [Seville](city)
+    - Environmental regulations in [Bilbao](city)
+    - Pollution rules for [Zaragoza](city)
+    - Green policies in [Málaga](city)
+    - Environmental laws in [Palma de Mallorca](city)
+    - Recycling policies in [Madrid](city)
+    - Emission standards for [Barcelona](city)
+    - Noise regulations in [Valencia](city)
+    - Water restrictions in [Seville](city)
+    - Environmental guidelines for [Bilbao](city)
+    - Waste management in [Zaragoza](city)
+    - Air quality policies in [Málaga](city)
+    - Environmental compliance in [Palma de Mallorca](city)
+    - Show me policies for [Madrid](city)
+    - What are the rules in [Barcelona](city)?
+    - Environmental laws for [Valencia](city)
+    - Regulations in [Seville](city)
+
+# AIR QUALITY QUERIES (Global - Any City - unchanged)
+- intent: query_air_quality
+  examples: |
+    # Spanish cities (your 8 cities)
+    - What is the air quality in [Madrid](city)?
+    - Air quality in [Barcelona](city)?
+    - How's the air in [Valencia](city)?
+    - Check air quality for [Seville](city)
+    - Air quality in [Bilbao](city)
+    - Air pollution levels in [Zaragoza](city)
+    - How's the air quality in [Málaga](city)
+    - What's the air quality in [Palma de Mallorca](city)?
+    # Major global cities
+    - What's the air quality in [Paris](city)?
+    - Air quality in [London](city)?
+    - How's the air in [New York](city)?
+    - Check air quality for [Tokyo](city)?
+    - Air quality in [Delhi](city)?
+    - Air pollution levels in [Mumbai](city)
+    - How's the air quality in [Los Angeles](city)?
+    - What's the air quality in [Sydney](city)?
+    - Air quality in [Berlin](city)?
+    - How's the air in [Rome](city)?
+    - Check air quality for [Amsterdam](city)?
+    - Air quality in [Beijing](city)
+    - What's the air in [Moscow](city)?
+    - Air quality [Shanghai](city)
+    - How's the air in [Singapore](city)?
+    - Air quality in [Bangkok](city)
+    - Check air quality [Seoul](city)
+    - Air pollution in [Cairo](city)
+    - Air quality [Istanbul](city)
+    - How's the air in [Dubai](city)?
+    # Alternative phrasings
+    - Air quality of [London](city)
+    - Air quality of [Berlin](city)
+    - Air quality of [Paris](city)
+    - Air quality [Mumbai](city)
+    - Air quality [London](city)
+    - Air quality [Tokyo](city)
+    - How's air quality [Delhi](city)?
+    - Check air [Beijing](city)
+    - Show air quality [Moscow](city)
+    # AQI specific queries
+    - AQI in [Madrid](city)
+    - AQI of [Barcelona](city)
+    - AQI [London](city)
+    - AQI [Berlin](city)
+    - AQI [Paris](city)
+    - AQI [Mumbai](city)
+    - AQI [Tokyo](city)
+    - AQI [Delhi](city)
+    - AQI [Beijing](city)
+    - AQI [New York](city)
+    - What's the AQI in [Delhi](city)?
+    - Show me AQI for [Beijing](city)
+    - Get AQI [New York](city)
+    - Check AQI [Sydney](city)
+    - AQI level [Moscow](city)
+    - What AQI [Shanghai](city)?
+    - AQI data [Singapore](city)
+    - Show AQI [Bangkok](city)
+    # Pollution specific
+    - Pollution level in [Delhi](city)
+    - Air pollution [Beijing](city)
+    - Pollution index [Mumbai](city)
+    - How polluted is [Cairo](city)?
+    - Pollution data [Mexico City](city)
+    - Air pollution level [Jakarta](city)
+    # Location-based queries (coordinates and addresses)
+    - AQI of my location
+    - Air quality at [40.7128,-74.0060](location)
+    - What's the air quality at [Eiffel Tower, Paris](location)?
+    - Air pollution near [Central Park, New York](location)
+    - How's the air at [48.8566,2.3522](location)?
+    - Check air quality at my coordinates [51.5074,-0.1278](location)
+    - Air quality near [Times Square](location)
+    - What's the AQI at [Golden Gate Bridge](location)?
+    - Air quality at [Tower Bridge, London](location)
+    - AQI near [Statue of Liberty](location)
+    - Air quality [Piccadilly Circus](location)
+    - Check air quality [Brooklyn Bridge](location)
+    - Air pollution at [Hyde Park](location)
+    - AQI at coordinates [35.6762,139.6503](location)
+    - Air quality near [Big Ben](location)
+
+# GREETING INTENTS
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hola
+    - hey
+    - good morning
+    - good afternoon
+    - good evening
+    - goodnight
+    - greetings
+    - what's up
+    - yo
+    - salut
+    - bonjour
+    - ciao
+    - howdy
+    - hi there
+    - hello there
+    - hey there
+    - good day
+    - morning
+    - afternoon
+    - evening
+    - sup
+    - wassup
+    - namaste
+    - konnichiwa
+    - guten tag
+    - buenas
+    - ola
+
+# FEEDBACK INTENTS
+- intent: thumbs_up
+  examples: |
+    - thumbs up
+    - good response
+    - that was helpful
+    - 👍
+    - excellent
+    - perfect
+    - great answer
+    - very helpful
+    - thanks
+    - awesome
+    - brilliant
+    - spot on
+    - exactly what I needed
+    - helpful response
+    - good job
+    - well done
+    - accurate
+    - useful information
+    - satisfied
+    - happy with response
+
+- intent: thumbs_down
+  examples: |
+    - thumbs down
+    - not helpful
+    - wrong answer
+    - 👎
+    - incorrect
+    - bad response
+    - unhelpful
+    - not what I wanted
+    - disappointed
+    - poor answer
+    - not accurate
+    - misleading
+    - confusing
+    - doesn't help
+    - not satisfied
+    - wrong information
+    - bad data
+    - not working
+    - error in response
+    - incomplete answer
+
+- intent: provide_feedback_description
+  examples: |
+    - it was inaccurate
+    - too slow
+    - didn't understand
+    - wrong city data
+    - outdated information
+    - missing details
+    - confusing response
+    - not relevant
+    - incomplete data
+    - technical error
+    - wrong location
+    - data not available
+    - server timeout
+    - incorrect coordinates
+    - bad air quality data
+    - wrong AQI value
+    - old information
+    - not real-time
+    - connection failed
+    - API error
+
+# DATA SOURCE INQUIRY
+- intent: ask_data_source
+  examples: |
+    - What was the source of the data?
+    - Where did this air quality info come from?
+    - Original data source?
+    - What's the data source?
+    - Where do you get this information?
+    - Data comes from where?
+    - Source of this data?
+    - Who provides this information?
+    - What API are you using?
+    - Where is this from?
+    - Data provider?
+    - Information source?
+    - Which database?
+    - What's your source?

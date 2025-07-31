@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-address",
+      "2": "I-address",
+      "3": "L-address",
+      "4": "U-address",
+      "5": "B-contact_number",
+      "6": "I-contact_number",
+      "7": "L-contact_number",
+      "8": "U-contact_number",
+      "9": "B-incident_type",
+      "10": "I-incident_type",
+      "11": "L-incident_type",
+      "12": "U-incident_type",
+      "13": "B-name",
+      "14": "I-name",
+      "15": "L-name",
+      "16": "U-name",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-address": 1,
+      "I-address": 2,
+      "L-address": 3,
+      "U-address": 4,
+      "B-contact_number": 5,
+      "I-contact_number": 6,
+      "L-contact_number": 7,
+      "U-contact_number": 8,
+      "B-incident_type": 9,
+      "I-incident_type": 10,
+      "L-incident_type": 11,
+      "U-incident_type": 12,
+      "B-name": 13,
+      "I-name": 14,
+      "L-name": 15,
+      "U-name": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

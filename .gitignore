@@ -1,0 +1,36 @@
+# Python virtual environment
+venv/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Rasa model files
+models/
+
+# Test and temp files
+*.tar.gz
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# Jupyter and notebook files
+*.ipynb_checkpoints
+
+# Misc
+*.bak
+*.swp
+
+# Do not track owl.png (if you want to keep it local only)
+# owl.png
+

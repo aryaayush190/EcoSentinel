@@ -1,0 +1,35 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"environment_incident_form\"}}]": "action_submit_environment_incident",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"environment_incident_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_submit_environment_incident\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"environment_incident_report\"}}]": "environment_incident_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"environment_incident_report\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"environment_incident_form\"}, \"user\": {\"intent\": \"environment_incident_report\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"exit_form\"}}]": "utter_form_cancelled",
+      "[{\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"exit_form\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"utter_form_cancelled\"}, \"user\": {\"intent\": \"exit_form\"}}]": "action_deactivate_loop",
+      "[{\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"exit_form\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"utter_form_cancelled\"}, \"user\": {\"intent\": \"exit_form\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_deactivate_loop\"}, \"user\": {\"intent\": \"exit_form\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "environment_incident_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"environment_incident_form\"}, \"user\": {\"intent\": \"environment_incident_report\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"utter_form_cancelled\"}, \"user\": {\"intent\": \"exit_form\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"utter_form_cancelled\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_deactivate_loop\"}, \"user\": {\"intent\": \"exit_form\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"exit_form\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"utter_form_cancelled\"}, \"user\": {\"intent\": \"exit_form\"}}]",
+      "[{\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"exit_form\"}}]",
+      "[{\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"exit_form\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"utter_form_cancelled\"}, \"user\": {\"intent\": \"exit_form\"}}, {\"active_loop\": {\"name\": \"environment_incident_form\"}, \"prev_action\": {\"action_name\": \"action_deactivate_loop\"}, \"user\": {\"intent\": \"exit_form\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"environment_incident_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"environment_incident_report\"}}]",
+      "predicting default action with intent restart",
+      "handling active loops and forms - environment_incident_form",
+      "predicting default action with intent back",
+      "handling active loops and forms - environment_incident_form - action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"environment_incident_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_submit_environment_incident\"}}]",
+      "predicting default action with intent session_start"
+    ]
+  }
+}

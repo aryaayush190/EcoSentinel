@@ -1,0 +1,55 @@
+version: "3.1"
+
+rules:
+- rule: Start incident report form
+  steps:
+  - intent: environment_incident_report
+  - action: environment_incident_form
+  - active_loop: environment_incident_form
+
+- rule: Submit form
+  condition:
+  - active_loop: environment_incident_form
+  steps:
+  - action: environment_incident_form
+  - active_loop: null
+  - action: action_submit_environment_incident
+
+- rule: Exit form anytime
+  condition:
+  - active_loop: environment_incident_form
+  steps:
+  - intent: exit_form
+  - action: utter_form_cancelled
+  - action: action_deactivate_loop
+
+- rule: Handle water data query
+  steps:
+  - intent: query_water_data
+  - action: action_query_water_data
+
+- rule: Handle policy query
+  steps:
+  - intent: query_policy
+  - action: action_query_policy
+
+- rule: Handle air quality query with city
+  steps:
+  - intent: query_air_quality
+  - action: action_query_air_quality
+
+- rule: Respond to greetings
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Store and analyze after bot response
+  condition:
+  - slot_was_set:
+      - analyzed: false
+  - slot_was_set:
+      - feedback_description: null  # Avoids overlap with feedback
+  steps:
+
+  - action: action_store_last_interaction
+  - action: action_analyze_response

@@ -1,0 +1,10 @@
+{
+  "rule_only_slots": [
+    "feedback_description",
+    "city",
+    "analyzed"
+  ],
+  "rule_only_loops": [
+    "environment_incident_form"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJKM0N6k4PiW/PK+2NhYAl/seGA==": "action_store_last_interaction",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJKM0N6k4PiW/PK+WOJOKS/KLUuNzEotL4kGGFEGECZgcCwBUaUEv": "action_handle_thumbs_down",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJKM0N6k4PiW/PK+WOJOKS/KLUuNzEotL4kGGFEGEqWFyRmJeSk5qPLJG/KbGAgDOl2J8": "action_listen",
+    "eJytj1EKgCAQRK/iATqBV4lYLBcSdA13K0K8e0Z99BP04d/MMPNg+lw6lZeEG5hJXCSt8i2ATECtHuMdC1LtroypdhxVK1rJvIaRwcadyj8SS0wI3rDABUl33II8G7Ie4T1sQP16bpGOUoYT73J76Q==": "utter_form_cancelled",
+    "eJytz8EJwzAMBdBVPEAn8CqlCNVWiUGWgyy3FJPd65IcegnNITd98fVA175cXJ+VnoDBUhHv+jqAYCbvtsCpGsnotko6OklGNO9savleIZaXLMekakUJGKvBF9F1fYY8oUQm+D08Qd37PJK8/xHNxoPwKJohoARiprgn3T7gJJgr": "action_listen",
+    "eJytj0EOwjAMBL+SB/CCfAUhK02MapE6ke2WQ5S/E1oOXJA49La72h1pr61fXKuCG4RoVNi7dgjgsKB3H5NJDXl0V0UZHeJhzTub12VSSOXJ/T+SWhGEHNTgDZEjPoM8B04Z4Xt4AvXX8yplo4RwR0xTiA9IqFGo7m/67QUE7YW5": "action_submit_thumbs_down",
+    "eJytkEsOwzAIRK/iA/QEvkpVIX+oYjXGFuB0YeXudZsuummURXYMGh4M175eTK+MC7igqZA1fSuAXEZrvmJOokjD2wR5eBINqdbo1LIXiOVJ6zGSaGGE2YnCG8Jb+wzy5CjOCL+DJ1D/Ja9clhQR7ojRu/CAiBI41U+ag69oPifdP3h/ze0F4ZWuBA==": "action_analyze_response",
+    "eJytkFEOwjAIhq/SA3iCXcUYwlrMGlvaAJvRZnd3Oh980cxkb0B+vp+fY5sPrlWhCdBbLNy5thbAmKlz7yZFNeJFOyrJoom8tNY5G8bcK4Ry5XkbSa0IQUI1eEJkHe9BHpBDIvhc3IH6LXmVMsVAcCYKPfoLBFIvsb7SbHzF2Odovw/ewQYZ0+1OIKS1sNK/JqcHRNfVdA==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJKM0N6k4vrSgtjYWAFyRHUU=": "action_store_last_interaction",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJKM0N6k4vrSgljhzikvyi1LjcxKLS+JBRhRBhPGaGwsATtA/iQ==": "action_handle_thumbs_up",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhJKM0N6k4vrSgljhzikvyi1LjcxKLS+JBRhRBhCk3NyMxLyUnNR6hDZ+JsQC49V8w": "action_analyze_response",
+    "eJylzNEJwzAMBNBVPEAn8CqlCLU5iMGRjSQXWpPd65JA/kohfzpx9659vYReFU/ih6ciMfTtIOEFMewhJ3PI6DaDjk6SET0Gn9tyN2p1/c8xLwrKbE5fQrf3eXdmmTLomJ0WWTi/3iCF1SKGn+LtA0xcfvc=": "action_listen"
+  }
+}

@@ -1,0 +1,89 @@
+version: "3.1"
+
+stories:
+- story: test complete incident report flow
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      I want to report an incident
+    intent: report_incident
+  - action: incident_report_form
+  - active_loop: incident_report_form
+  - user: |
+      noise pollution
+    intent: inform
+  - slot_was_set:
+    - incident_type: "Noise Pollution"
+  - user: |
+      John Doe
+    intent: inform
+  - slot_was_set:
+    - reporter_name: "John Doe"
+  - user: |
+      +1 555-123-4567
+    intent: inform
+  - slot_was_set:
+    - contact_number: "+1 555-123-4567"
+  - user: |
+      Construction noise all night long, very loud and disruptive
+    intent: inform
+  - slot_was_set:
+    - incident_description: "Construction noise all night long, very loud and disruptive"
+  - user: |
+      123 Main Street, Downtown
+    intent: inform
+  - slot_was_set:
+    - reporter_address: "123 Main Street, Downtown"
+  - user: |
+      yes
+    intent: affirm
+  - slot_was_set:
+    - has_evidence: true
+  - action: incident_report_form
+  - active_loop: null
+  - action: action_submit_incident_report
+
+- story: test form cancellation
+  steps:
+  - user: |
+      report incident
+    intent: report_incident
+  - action: incident_report_form
+  - active_loop: incident_report_form
+  - user: |
+      cancel
+    intent: cancel_form
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_form_cancelled
+
+- story: test form exit
+  steps:
+  - user: |
+      report incident
+    intent: report_incident
+  - action: incident_report_form
+  - active_loop: incident_report_form
+  - user: |
+      exit
+    intent: exit_form
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_form_exited
+
+- story: test don't want form
+  steps:
+  - user: |
+      report incident
+    intent: report_incident
+  - action: incident_report_form
+  - active_loop: incident_report_form
+  - user: |
+      I don't want to fill this form
+    intent: dont_want_form
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_form_exited
