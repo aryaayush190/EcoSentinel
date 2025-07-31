@@ -14,7 +14,7 @@ NEO4J_PASSWORD = "Anmol@123"  # Update if different
 WATERBASE_SPARQL_ENDPOINT = "http://localhost:7200/repositories/waterbase"
 POLICY_SPARQL_ENDPOINT = "http://localhost:7200/repositories/policy"
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = 
 GROQ_MODEL = "deepseek-r1-distill-llama-70b"  # Fallback: "llama3-70b-8192"
 
 def check_neo4j_connection():
