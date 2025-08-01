@@ -1,9 +1,0 @@
-{
-  "rule_only_slots": [
-    "analyzed",
-    "feedback_description"
-  ],
-  "rule_only_loops": [
-    "environment_incident_form"
-  ]
-}
