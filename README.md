@@ -7,7 +7,7 @@ This project is a backend for an advanced environmental data chatbot built with 
 - **Policy queries** (GraphDB/SPARQL)
 - **Air quality queries** (AQICN API)
 - **Feedback collection** (Neo4j)
-- **Response analysis and improvement** (Groq API)
+- **Response analysis and improvement** (Gemini API)
 
 ---
 
@@ -26,7 +26,7 @@ graph TD
     Actions -->|Incident/Feedback| Neo4j[(Neo4j DB)]
     Actions -->|Water/Policy| GraphDB[(GraphDB SPARQL)]
     Actions -->|Air Quality| AQICN[(AQICN API)]
-    Actions -->|Response Analysis| Groq[(Groq API)]
+    Actions -->|Response Analysis| Gemini[(Gemini API)]
 ```
 
 ---
@@ -59,7 +59,7 @@ graph TD
 - Formats results for chatbot display.
 
 ### 5. `actions/response_analyzer.py`
-- Uses Groq API to analyze and improve bot responses.
+- Uses Gemini API to analyze and improve bot responses.
 - Checks grammar, structure, accuracy, formatting, completeness.
 - Adds emojis and bullet points for readability.
 - Detects city context from station IDs via GraphDB.
@@ -76,7 +76,7 @@ sequenceDiagram
     participant N as Neo4j
     participant G as GraphDB
     participant Q as AQICN
-    participant GR as Groq
+    participant GR as Gemini
 
     U->>R: User query
     R->>A: Custom action call
@@ -97,7 +97,7 @@ sequenceDiagram
 - **SPARQLWrapper**: Python library for SPARQL queries
 - **AQICN API**: Real-time air quality data
 - **geopy**: Geocoding for location/city extraction
-- **Groq API**: LLM-based response improvement
+- **Gemini API**: LLM-based response improvement
 
 ---
 
@@ -130,8 +130,8 @@ sequenceDiagram
 - User gives thumbs up/down.
 - Feedback saved to Neo4j with context (query, response, description).
 
-### Response Analysis (Groq API)
-- After each bot response, Groq API analyzes and improves reply.
+### Response Analysis (Gemini API)
+- After each bot response, Gemini API analyzes and improves reply.
 - Checks grammar, formatting, completeness, adds emojis.
 - Enhanced response sent to user if significantly improved.
 
@@ -156,7 +156,7 @@ sequenceDiagram
 - GraphDB endpoints:
   - `WATERBASE_SPARQL=http://localhost:7200/repositories/waterbase`
   - `POLICY_SPARQL=http://localhost:7200/repositories/policy`
-- Groq API key: Set in `endpoints.yml` or as env variable
+- Gemini API key: Set in `endpoints.yml` or as env variable
 
 ---
 
@@ -247,4 +247,4 @@ Bot: Feedback noted: 'Too slow'. Thanks for helping us improve!
 - [Neo4j Documentation](https://neo4j.com/docs/)
 - [GraphDB Documentation](https://graphdb.ontotext.com/documentation/)
 - [AQICN API](https://aqicn.org/api/)
-- [Groq API](https://groq.com/)
+- [Gemini API](https://Gemini.com/)
