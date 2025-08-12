@@ -76,7 +76,6 @@ sequenceDiagram
     participant N as Neo4j
     participant G as GraphDB
     participant Q as AQICN
-    participant GR as Gemini
 
     U->>R: User query
     R->>A: Custom action call
