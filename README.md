@@ -26,7 +26,7 @@ graph TD
     Actions -->|Incident/Feedback| Neo4j[(Neo4j DB)]
     Actions -->|Water/Policy| GraphDB[(GraphDB SPARQL)]
     Actions -->|Air Quality| AQICN[(AQICN API)]
-    Actions -->|Response Analysis| Gemini[(Gemini API)]
+    
 ```
 
 ---
